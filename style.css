@@ -1,0 +1,17 @@
+body {
+  background: #f4f7f6;
+}
+
+.hero {
+  height: 500px;
+  background: url("https://images.unsplash.com/photo-1500382017468-9049fed747ef");
+  background-size: cover;
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  transition: 0.3s;
+}

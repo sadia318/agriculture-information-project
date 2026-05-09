@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agricultural Information Hub</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+</head>
+
+<body>
+    <!-- Nav-var  -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
+        <div class="container">
+            <a class="navbar-brand">Agri Hub</a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#guides">Guides</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#crops">Crops</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pests">Pest</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Agricultural Information Hub</h1>
+        <p>A complete platform providing farming guides, crop information, and pest control solutions.</p>
+    </section>
+
+    <!-- FEATURED SECTION -->
+    <section id="features" class="container py-5">
+        <h2 class="text-center mb-4">Key Features</h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card text-center p-3 shadow">
+                    <h5>Farming Guides</h5>
+                    <p>Modern and traditional farming techniques.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card text-center p-3 shadow">
+                    <h5>Crop Details</h5>
+                    <p>Complete crop information with soil & harvesting.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card text-center p-3 shadow">
+                    <h5>Pest Control</h5>
+                    <p>Effective pest management strategies.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Farming Guides Section -->
+    <section id="guides" class="container py-5">
+        <h2 class="text-center mb-4">Farming Guides</h2>
+        <p class="text-center mb-5">
+            Explore different farming techniques, categorized by crop type, season, and methods.
+        </p>
+
+        <!-- FILTER BAR -->
+        <div class="row g-3 mb-4 justify-content-center">
+            <div class="col-md-3">
+                <select class="form-select" id="filterType">
+                    <option value="all">All Types</option>
+                    <option value="rice">Rice</option>
+                    <option value="vegetable">Vegetable</option>
+                    <option value="fruit">Fruit</option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <select class="form-select" id="filterSeason">
+                    <option value="all">All Seasons</option>
+                    <option value="summer">Summer</option>
+                    <option value="winter">Winter</option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <select class="form-select" id="filterMethod">
+                    <option value="all">All Methods</option>
+                    <option value="organic">Organic</option>
+                    <option value="modern">Modern</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- GUIDE CARDS -->
+        <div class="row g-4" id="guideContainer">
+
+            <!-- Rice -->
+            <div class="col-md-4 guide" data-type="rice" data-season="summer" data-method="modern">
+                <div class="card shadow h-100">
+                    <img src="./images/rice.png" class="card-img-top">
+                    <div class="card-body">
+                        <h5>Rice Farming</h5>
+                        <p>High-yield modern rice cultivation techniques.</p>
+                        <ul class="small">
+                            <li>Season: Summer</li>
+                            <li>Method: Modern</li>
+                        </ul>
+                        <button class="btn btn-success btn-sm w-100" onclick="showDetails('rice')">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vegetable -->
+            <div class="col-md-4 guide" data-type="vegetable" data-season="winter" data-method="organic">
+                <div class="card shadow h-100">
+                    <img src="./images/vegetables.png" class="card-img-top">
+                    <div class="card-body">
+                        <h5>Vegetable Farming</h5>
+                        <p>Organic vegetable farming for healthy production.</p>
+                        <ul class="small">
+                            <li>Season: Winter</li>
+                            <li>Method: Organic</li>
+                        </ul>
+                        <button class="btn btn-success btn-sm w-100" onclick="showDetails('vegetable')">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fruit -->
+            <div class="col-md-4 guide" data-type="fruit" data-season="summer" data-method="organic">
+                <div class="card shadow h-100">
+                    <img src="./images/fruits.png" class="card-img-top">
+                    <div class="card-body">
+                        <h5>Fruit Farming</h5>
+                        <p>Seasonal fruit cultivation with organic methods.</p>
+                        <ul class="small">
+                            <li>Season: Summer</li>
+                            <li>Method: Organic</li>
+                        </ul>
+                        <button class="btn btn-success btn-sm w-100" onclick="showDetails('fruit')">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- DETAILS BOX -->
+        <div id="detailsBox" class="mt-5"></div>
+
+    </section>
+
+
+    <!-- Crop Details Section -->
+    <section id="crops" class="container py-5">
+        <h2 class="text-center mb-4">Crop Details</h2>
+        <p class="text-center mb-5">
+            Detailed information about crops including varieties, cultivation, soil, harvesting, nutrition and uses.
+        </p>
+
+        <!-- CATEGORY TABS -->
+        <ul class="nav nav-pills justify-content-center mb-4">
+            <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill"
+                    data-bs-target="#grains">Grains</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#fruits">Fruits</button>
+            </li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="pill"
+                    data-bs-target="#vegetables">Vegetables</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#cash">Cash
+                    Crops</button></li>
+        </ul>
+
+        <div class="tab-content">
+
+            <!-- GRAINS -->
+            <div class="tab-pane fade show active" id="grains">
+                <div class="row g-4">
+
+                    <div class="col-md-4">
+                        <div class="card shadow h-100">
+                            <img src="./images/rice.png" class="card-img-top">
+                            <div class="card-body">
+                                <h5>Rice</h5>
+                                <p><strong>Varieties:</strong> Basmati, BRRI dhan-28, IR64</p>
+                                <p><strong>Soil:</strong> Clayey, loamy</p>
+                                <p><strong>Cultivation:</strong> Transplanting method</p>
+                                <p><strong>Harvesting:</strong> 3-4 months after planting</p>
+                                <p><strong>Nutrition:</strong> Rich in carbohydrates</p>
+                                <p><strong>Uses:</strong> Staple food, rice products</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card shadow h-100">
+                            <img src="./images/wheat.png" class="card-img-top">
+                            <div class="card-body">
+                                <h5>Wheat</h5>
+                                <p><strong>Varieties:</strong> Sonalika, Kanchan</p>
+                                <p><strong>Soil:</strong> Loamy</p>
+                                <p><strong>Cultivation:</strong> Direct sowing</p>
+                                <p><strong>Harvesting:</strong> 4-5 months</p>
+                                <p><strong>Nutrition:</strong> Protein, fiber</p>
+                                <p><strong>Uses:</strong> Bread, flour</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- FRUITS -->
+            <div class="tab-pane fade" id="fruits">
+                <div class="row g-4">
+
+                    <div class="col-md-4">
+                        <div class="card shadow h-100">
+                            <img src="./images/mango.png" class="card-img-top">
+                            <div class="card-body">
+                                <h5>Mango</h5>
+                                <p><strong>Varieties:</strong> Langra, Himsagar</p>
+                                <p><strong>Soil:</strong> Loamy</p>
+                                <p><strong>Cultivation:</strong> Grafting</p>
+                                <p><strong>Harvesting:</strong> Summer season</p>
+                                <p><strong>Nutrition:</strong> Vitamin A, C</p>
+                                <p><strong>Uses:</strong> Juice, desserts</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- VEGETABLES -->
+            <div class="tab-pane fade" id="vegetables">
+                <div class="row g-4">
+
+                    <div class="col-md-4">
+                        <div class="card shadow h-100">
+                            <img src="./images/tomato.png" class="card-img-top">
+                            <div class="card-body">
+                                <h5>Tomato</h5>
+                                <p><strong>Varieties:</strong> Roma, Cherry</p>
+                                <p><strong>Soil:</strong> Sandy loam</p>
+                                <p><strong>Cultivation:</strong> Seed planting</p>
+                                <p><strong>Harvesting:</strong> 2-3 months</p>
+                                <p><strong>Nutrition:</strong> Vitamin C</p>
+                                <p><strong>Uses:</strong> Cooking, salad</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CASH CROPS -->
+            <div class="tab-pane fade" id="cash">
+                <div class="row g-4">
+
+                    <div class="col-md-4">
+                        <div class="card shadow h-100">
+                            <img src="./images/jute.png" class="card-img-top">
+                            <div class="card-body">
+                                <h5>Jute</h5>
+                                <p><strong>Varieties:</strong> Tossa, White jute</p>
+                                <p><strong>Soil:</strong> Alluvial</p>
+                                <p><strong>Cultivation:</strong> Direct sowing</p>
+                                <p><strong>Harvesting:</strong> 4 months</p>
+                                <p><strong>Uses:</strong> Fiber production</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Pest Control Section -->
+    <section id="pests" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Pest Control Strategies</h2>
+            <p class="text-center mb-5">
+                Effective pest management using integrated approaches including biological, organic, and chemical
+                methods.
+            </p>
+
+            <!-- METHODS -->
+            <div class="row g-4">
+
+                <!-- Biological -->
+                <div class="col-md-4">
+                    <div class="card shadow h-100">
+                        <img src="./images/ladybug.png" class="card-img-top">
+                        <div class="card-body">
+                            <h5>Biological Control</h5>
+                            <p>Use natural predators and beneficial insects to control pests.</p>
+                            <ul>
+                                <li>Ladybugs for aphids</li>
+                                <li>Parasitoid wasps</li>
+                                <li>Natural enemies</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Organic -->
+                <div class="col-md-4">
+                    <div class="card shadow h-100">
+                        <img src="./images/agriculture.png" class="card-img-top">
+                        <div class="card-body">
+                            <h5>Organic Remedies</h5>
+                            <p>Eco-friendly methods that do not harm the environment.</p>
+                            <ul>
+                                <li>Neem oil spray</li>
+                                <li>Garlic-chili solution</li>
+                                <li>Compost-based treatments</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chemical -->
+                <div class="col-md-4">
+                    <div class="card shadow h-100">
+                        <img src="./images/farmer.png" class="card-img-top">
+                        <div class="card-body">
+                            <h5>Chemical Control</h5>
+                            <p>Use pesticides carefully when infestation is severe.</p>
+                            <ul>
+                                <li>Use approved pesticides</li>
+                                <li>Follow dosage instructions</li>
+                                <li>Ensure safety precautions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- IPM SECTION -->
+            <div class="mt-5">
+                <div class="card shadow p-4">
+                    <h4>Integrated Pest Management (IPM)</h4>
+                    <p>
+                        IPM is a comprehensive approach that combines biological, organic, and chemical methods
+                        to control pests effectively while minimizing environmental damage.
+                    </p>
+
+                    <div class="row mt-3">
+
+                        <div class="col-md-4">
+                            <h6>Prevention</h6>
+                            <ul>
+                                <li>Use resistant crop varieties</li>
+                                <li>Maintain soil health</li>
+                                <li>Proper irrigation</li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-4">
+                            <h6>Monitoring</h6>
+                            <ul>
+                                <li>Regular field inspection</li>
+                                <li>Use pest traps</li>
+                                <li>Early symptom detection</li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-4">
+                            <h6>Control</h6>
+                            <ul>
+                                <li>Apply biological methods first</li>
+                                <li>Use organic remedies</li>
+                                <li>Chemical as last option</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- EARLY DETECTION -->
+            <div class="mt-5">
+                <h4>Monitoring & Early Detection</h4>
+                <ul>
+                    <li>Inspect crops regularly for signs of pests</li>
+                    <li>Identify pest types at early stages</li>
+                    <li>Take immediate action to prevent spread</li>
+                    <li>Use modern tools like traps and sensors</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Contact Agricultural Experts</h2>
+            <p class="text-center mb-5">
+                Submit inquiries, seek expert advice, or request additional agricultural information.
+            </p>
+
+            <div class="row g-4">
+
+                <!-- CONTACT FORM -->
+                <div class="col-md-6">
+                    <form id="contactForm" class="card shadow p-4 needs-validation" novalidate>
+
+                        <div class="mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" required>
+                            <div class="invalid-feedback">Please enter your name</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-control" required>
+                            <div class="invalid-feedback">Enter a valid email</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Type of Inquiry</label>
+                            <select class="form-select" required>
+                                <option value="">Select</option>
+                                <option>Farming Advice</option>
+                                <option>Crop Information</option>
+                                <option>Pest Control Help</option>
+                                <option>General Inquiry</option>
+                            </select>
+                            <div class="invalid-feedback">Please select inquiry type</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Area of Expertise Needed</label>
+                            <select class="form-select" required>
+                                <option value="">Select Expertise</option>
+                                <option>Soil Management</option>
+                                <option>Irrigation</option>
+                                <option>Crop Production</option>
+                                <option>Pest Management</option>
+                            </select>
+                            <div class="invalid-feedback">Select expertise area</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control" rows="4" required></textarea>
+                            <div class="invalid-feedback">Please write your message</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Upload Image/Document (Optional)</label>
+                            <input type="file" class="form-control">
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100">
+                            Submit Request
+                        </button>
+
+                    </form>
+                </div>
+
+                <!-- CONTACT INFO -->
+                <div class="col-md-6">
+                    <div class="card shadow h-100 p-4">
+
+                        <h5 class="mb-3">📞 Agricultural Extension Services</h5>
+
+                        <p><strong>Phone:</strong> +880-1234-567890</p>
+                        <p><strong>Email:</strong> agri-support@example.com</p>
+                        <p><strong>Office Hours:</strong> 9:00 AM – 5:00 PM</p>
+
+                        <hr>
+
+                        <h6>📍 Office Location</h6>
+                        <p>Department of Agricultural Extension, Dhaka, Bangladesh</p>
+
+                        <hr>
+
+                        <h6>💡 Quick Support</h6>
+                        <ul>
+                            <li>Upload crop images for expert diagnosis</li>
+                            <li>Get pest control solutions</li>
+                            <li>Receive farming recommendations</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- FOOTER -->
+    <footer class="bg-success text-white text-center p-3">
+        © 2026 Agricultural Hub | All rights reserved | Designed by Md. Abdul Kuddus
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>
